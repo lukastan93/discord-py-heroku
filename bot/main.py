@@ -44,6 +44,10 @@ def process_commands(message):
       embed.add_field(name="Fast", value="{}".format(fast), inline=True)
       return embed
 
+    if content.split(" ")[0] == "img":
+      url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{}.png".format(content[1])
+      return url
+
 
 @client.event
 async def on_ready():
