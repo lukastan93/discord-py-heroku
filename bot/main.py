@@ -4,7 +4,6 @@ import requests
 import json
 import re
 import random
-from keep_alive import keep_alive
 client = discord.Client()
 
 def process_commands(message):
@@ -62,5 +61,4 @@ async def on_message(message):
     else:
       return "Invalid command."
 
-keep_alive()
 client.run(os.getenv('TOKEN'))
