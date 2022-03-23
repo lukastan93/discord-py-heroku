@@ -45,7 +45,7 @@ def process_commands(message):
       return embed
 
     if content.split(" ")[0] == "img":
-      url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{}.png".format(str(content[1]))
+      url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{content[1]}.png"
       return url
 
 
