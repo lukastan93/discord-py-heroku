@@ -45,8 +45,9 @@ def process_commands(message):
       return embed
 
     if content.split(" ")[0] == "img":
-      url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{content[1]}.png"
-      return url
+      embed=discord.Embed(color=discord.Color.blue())
+      embed.set_image("https://everyday-goddesses.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{content[1]}.png")
+      return embed
 
 
 @client.event
