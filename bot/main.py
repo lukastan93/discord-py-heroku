@@ -4,6 +4,9 @@ import requests
 import json
 import re
 import random
+from PIL import Image
+from io import BytesIO
+import tempfile
 client = discord.Client()
 
 def process_commands(message):
@@ -49,6 +52,49 @@ def process_commands(message):
       embed.set_image(url="https://everyday-goddesses.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{}.png".format(content.split(" ")[1]))
       return embed
 
+# def process_banner(message):
+#         content = message[1:]
+#         url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
+#         background = Image.open("BG.png").convert("RGBA")
+#         response = requests.get(url)
+#         goddess = Image.open(BytesIO(response.content)).convert("RGBA")
+#         def merge(im1, im2):
+#             w = im1.size[0]
+#             h = max(im1.size[1], im2.size[1])
+#             im = Image.new("RGBA", (w, h))
+
+#             im.paste(im1)
+#             im.paste(im2, (int(w/3), int(h/2)), im2.convert("RGBA"))
+#             return im
+
+#         im1 = merge(background, goddess)
+#         output = im1.save("output.png")
+#         with open('output.png', 'rb') as f:
+#           picture = discord.File(f)
+#           return picture
+
+def process_pride(message):
+        content = message[1:]
+        url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
+        background = Image.open("pride.png").convert("RGBA")
+        response = requests.get(url)
+        goddess = Image.open(BytesIO(response.content)).convert("RGBA")
+        def merge(im1, im2):
+            w = im1.size[0]
+            h = max(im1.size[1], im2.size[1])
+            im = Image.new("RGBA", (w, h))
+
+            im.paste(im1)
+            im.paste(im2, im2.convert("RGBA"))
+            return im
+
+        im1 = merge(background, goddess)
+        output = im1.save("output.png")
+        with open('output.png', 'rb') as f:
+          picture = discord.File(f)
+          return picture
+
+
 
 @client.event
 async def on_ready():
@@ -59,7 +105,11 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$'):
+    if message.content.startswith('$banner'):
+        result = process_banner(message.content)
+        await message.channel.send(file = result)
+
+    elif message.content.startswith('$'):
         result = process_commands(message.content)
         await message.channel.send(embed = result)
 
