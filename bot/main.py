@@ -6,7 +6,6 @@ import re
 import random
 from PIL import Image
 from io import BytesIO
-import tempfile
 client = discord.Client()
 
 def process_commands(message):
