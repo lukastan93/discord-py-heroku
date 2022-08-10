@@ -55,7 +55,7 @@ def process_commands(message):
 def process_banner(message):
         content = message[1:]
         embed=discord.Embed(color=discord.Color.blue())
-        url = "https://https://opensea.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
+        url = "https://opensea.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
         background = Image.open("BG.png").convert("RGBA")
         response = requests.get(url)
         goddess = Image.open(BytesIO(response.content)).convert("RGBA")
