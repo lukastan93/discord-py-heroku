@@ -56,9 +56,9 @@ def process_banner(message):
         content = message[1:]
         embed=discord.Embed(color=discord.Color.blue())
         url = "http://opensea.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
-        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+        # headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
         background = Image.open("BG.png").convert("RGBA")
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, verify=false)
         goddess = Image.open(BytesIO(response.content)).convert("RGBA")
         def merge(im1, im2):
             w = im1.size[0]
