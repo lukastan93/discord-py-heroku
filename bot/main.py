@@ -55,7 +55,7 @@ def process_commands(message):
 def process_banner(message):
         content = message[1:]
         embed=discord.Embed(color=discord.Color.blue())
-        url = "https://opensea.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
+        url = "http://opensea.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
         background = Image.open("BG.png").convert("RGBA")
         response = requests.get(url, headers=headers)
