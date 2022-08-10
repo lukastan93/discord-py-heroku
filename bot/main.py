@@ -49,13 +49,13 @@ def process_commands(message):
 
     if content.split(" ")[0] == "img":
       embed=discord.Embed(color=discord.Color.blue())
-      embed.set_image(url="https://everyday-goddesses.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{}.png".format(content.split(" ")[1]))
+      embed.set_image(url="https://opensea.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{}.png".format(content.split(" ")[1]))
       return embed
 
 def process_banner(message):
         content = message[1:]
         embed=discord.Embed(color=discord.Color.blue())
-        url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
+        url = "https://https://opensea.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
         background = Image.open("BG.png").convert("RGBA")
         response = requests.get(url)
         goddess = Image.open(BytesIO(response.content)).convert("RGBA")
@@ -76,7 +76,7 @@ def process_banner(message):
 
 def process_pride(message):
         content = message[1:]
-        url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
+        url = "https://https://opensea.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
         background = Image.open("pride.png").convert("RGBA")
         response = requests.get(url)
         goddess = Image.open(BytesIO(response.content)).convert("RGBA")
