@@ -26,7 +26,7 @@ def process_commands(message):
 
     if content.split(" ")[0] == "rank":
       embed=discord.Embed(color=discord.Color.blue())
-      embed.set_thumbnail(url="https://images.raritysniffer.com/500/500/ipfs/QmcKNVfrYpwYemYUFzBgbMwLaJEDj7MGaiU1BAoxDgESyx/{}.png".format(content.split(" ")[1]))
+      embed.set_thumbnail(url="https://everyday-goddesses.mypinata.cloud/ipfs/QmVWyCLkiBVKgFdaMD9aXy27uz5sip4EwTWSQx3Hb8XT8v/{}.png".format(content.split(" ")[1]))
       embed.add_field(name="Token ID", value="{}".format(content.split(" ")[1]))
 
       response = requests.get("https://raritysniffer.dev/api/v1/collection?collection=0x9176e11a412b6ef5e8ddb045909a14112f7782b2&norm=true&traitCount=true&partial=false").json()
@@ -49,7 +49,7 @@ def process_commands(message):
 
     if content.split(" ")[0] == "img":
       embed=discord.Embed(color=discord.Color.blue())
-      embed.set_image(url="https://everyday-goddesses.mypinata.cloud/ipfs/QmV9mucbh6G3NKgVnEWj9YPAeYK5c6YfyUx7XmKjPLWe1V/{}.png".format(content.split(" ")[1]))
+      embed.set_image(url="https://everyday-goddesses.mypinata.cloud/ipfs/QmVWyCLkiBVKgFdaMD9aXy27uz5sip4EwTWSQx3Hb8XT8v/{}.png".format(content.split(" ")[1]))
       return embed
 
 def process_banner(message):
@@ -95,6 +95,13 @@ def process_pride(message):
           picture = discord.File(f)
           return picture
 
+def process_tattoo(message):
+        content = message[1:]
+        embed=discord.Embed(color=discord.Color.blue())
+        url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmYozrpnGTCE9Qfs5PSzGcVYkDQXTFTgDo7pG5WJHrkGUK/{}.png".format(content.split(" ")[1])
+        embed.set_image(url=url)
+        return embed
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -110,6 +117,10 @@ async def on_message(message):
 
     if message.content.startswith('$pride'):
         result = process_pride(message.content)
+        await message.channel.send(file = result)
+
+    if message.content.startswith('$tattoo'):
+        result = process_tattoo(message.content)
         await message.channel.send(file = result)
 
     elif message.content.startswith('$'):
