@@ -98,7 +98,7 @@ def process_pride(message):
 def process_tattoo(message):
         content = message[1:]
         embed=discord.Embed(color=discord.Color.blue())
-        url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmWLJwMLvPysw33i4YsHtbu2bSG6eyCFQyM3HMEu2Tb5Jg/{}.png".format(content.split(" ")[1])
+        url = "https://everyday-goddesses.mypinata.cloud/ipfs/QmWFqBGnmxmRqVsW3FsCSfHjpT9cQX8WGtiBG2fxbuocPQ/{}.png".format(content.split(" ")[1])
         embed.set_image(url=url)
         return embed
 
