@@ -121,7 +121,7 @@ async def on_message(message):
 
     if message.content.startswith('$tattoo'):
         result = process_tattoo(message.content)
-        await message.channel.send(file = result)
+        await message.channel.send(embed = result)
 
     elif message.content.startswith('$'):
         result = process_commands(message.content)
